@@ -917,8 +917,27 @@
 
     async start() {
       try {
-        this._stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        // Fallback for older browsers or webviews
+        const getUserMedia = navigator.mediaDevices?.getUserMedia?.bind(navigator.mediaDevices) ||
+          navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+        if (!getUserMedia) {
+          throw new Error("getUserMedia not supported");
+        }
+
+        // Wrap legacy callbacks into a Promise if necessary
+        this._stream = await new Promise((resolve, reject) => {
+          const promise = getUserMedia({ audio: true }, resolve, reject);
+          if (promise) promise.then(resolve).catch(reject);
+        });
+
         this._ctx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // Resume AudioContext if it's suspended (common on mobile)
+        if (this._ctx.state === 'suspended') {
+          await this._ctx.resume();
+        }
+
         const source = this._ctx.createMediaStreamSource(this._stream);
         this._analyser = this._ctx.createAnalyser();
         this._analyser.fftSize = 256;
@@ -926,7 +945,8 @@
         this._running = true;
         this._monitor();
         return true;
-      } catch {
+      } catch (err) {
+        console.error("AudioDetection error:", err);
         if (this.onUnavailable) this.onUnavailable();
         return false;
       }
@@ -1977,8 +1997,8 @@
 
       // Try mic
       const detection = new AudioDetection({
-        threshold: 0.14,
-        sustainMs: 480,
+        threshold: 0.08,
+        sustainMs: 300,
         onBlow: () => triggerBlow(),
         onUnavailable: () => {
           fadeText(instructionAction, false, 0.5);
