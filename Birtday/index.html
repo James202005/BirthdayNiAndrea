@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>The Museum of Us</title>
+    <meta name="description" content="An immersive interactive museum — a love story told through memories.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400&family=Caveat:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ============================================================
+         LOADING SCREEN
+         ============================================================ -->
+    <div id="loading-screen">
+        <div class="loading-top-line"></div>
+        <div class="loading-museum-label">Est. Our First Day</div>
+        <div class="loading-title">The Museum of Us</div>
+        <div class="loading-subtitle">A Love Story in Memory</div>
+        <div class="loading-bar-track">
+            <div class="loading-bar-fill" id="loading-bar"></div>
+        </div>
+        <div class="loading-percent" id="loading-percent">0%</div>
+        <div class="loading-bottom-hint">Preparing your private viewing</div>
+    </div>
+
+    <!-- ============================================================
+         CUSTOM CURSOR
+         ============================================================ -->
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+
+    <!-- ============================================================
+         3D CANVAS
+         ============================================================ -->
+    <div id="canvas-container"></div>
+
+    <!-- ============================================================
+         ATMOSPHERIC OVERLAYS
+         ============================================================ -->
+    <div class="vignette"></div>
+    <div class="film-grain"></div>
+
+    <!-- ============================================================
+         HUD
+         ============================================================ -->
+    <div id="hud">
+        <div class="hud-top">
+            <div class="hud-museum-name">The Museum of Us</div>
+            <div class="hud-tagline">A Love Story in Memory</div>
+        </div>
+        <div class="hud-bottom">
+            <div class="intro-banner" id="intro-banner">Make sure to click the picture for more</div>
+            <div class="scroll-indicator" id="scroll-indicator">
+                <div class="scroll-text" id="scroll-text">Scroll to Walk</div>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+        <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         FRAME DETAIL OVERLAY (FLIP CARD)
+         ============================================================ -->
+    <div id="frame-overlay">
+        <button class="overlay-close" id="frame-close" aria-label="Close">&times;</button>
+        <div class="flip-card-scene">
+            <div class="flip-card" id="flip-card">
+                <!-- Front: Photo -->
+                <div class="flip-card-face flip-card-front">
+                    <img id="detail-image" src="" alt="Memory photograph">
+                </div>
+                <!-- Back: Handwritten Note -->
+                <div class="flip-card-face flip-card-back">
+                    <div class="note-date" id="note-date"></div>
+                    <div class="note-body" id="note-body"></div>
+                    <div class="note-signature">— With all my love</div>
+                </div>
+            </div>
+            <div class="detail-info">
+                <div class="detail-date" id="detail-date"></div>
+                <div class="detail-title" id="detail-title"></div>
+                <div class="detail-desc" id="detail-desc"></div>
+                <div class="detail-flip-hint" id="flip-hint">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M15.97 17.031c-1.479 1.238-3.384 1.985-5.461 1.985C5.943 19.016 2 15.073 2 10.508S5.943 2 10.509 2C15.073 2 19.016 5.943 19.016 10.508c0 2.078-.747 3.984-1.985 5.461l4.749 4.75a.75.75 0 11-1.06 1.06l-4.75-4.748z" />
+                    </svg>
+                    Read the note
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         VIDEO PLAYER OVERLAY
+         ============================================================ -->
+    <div id="video-overlay">
+        <button class="overlay-close" id="video-close" aria-label="Close">&times;</button>
+        <video id="video-player" controls></video>
+        <div class="video-title" id="video-title"></div>
+    </div>
+
+    <!-- ============================================================
+         FINAL REVEAL
+         ============================================================ -->
+    <div id="final-reveal">
+        <div class="reveal-container" id="reveal-container">
+            <div class="reveal-line">Thank you for every memory.</div>
+            <div class="reveal-line">I love you. <span class="reveal-heart">&#10084;</span></div>
+            <div class="reveal-line">Happy Birthday.</div>
+            <button id="exit-btn" class="exit-btn" aria-label="Exit to cake">Exit</button>
+        </div>
+    </div>
+
+    <div id="cake-screen" role="dialog" aria-hidden="true">
+        <div id="celebration-root">
+            <div id="camera">
+                <canvas id="bg-canvas" aria-hidden="true"></canvas>
+                <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+                <div id="cake-stage"></div>
+                <canvas id="decor-canvas" aria-hidden="true"></canvas>
+                <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+                <div id="firework-flash" aria-hidden="true"></div>
+            </div>
+
+            <div id="text-layer">
+                <div id="instruction" hidden>
+                    <p id="instruction-wish" class="instruction-line wish">Make a wish&hellip;</p>
+                    <p id="instruction-action" class="instruction-line action">Blow into your microphone</p>
+                    <p id="instruction-alt" class="instruction-line action-alt">or tap the candle</p>
+                </div>
+
+                <div id="finale-text" hidden>
+                    <h1 id="finale-heading" class="finale-heading">Happy Birthday <span class="heart">&#10084;&#65039;</span></h1>
+                    <p class="finale-line">I love you more than words can describe.</p>
+                    <p class="finale-line">Thank you for being part of my life.</p>
+                    <p class="finale-line">May every dream you have come true.</p>
+                </div>
+            </div>
+
+            <button id="restart-btn" class="exit-btn restart-btn" aria-label="Start again">Start Again</button>
+            <div id="entrance-fade" aria-hidden="true"></div>
+            <button id="sound-enable" type="button" hidden>&#128266; Tap to enable sound</button>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         CLOTH CLICK HINT
+         ============================================================ -->
+    <div class="cloth-hint" id="cloth-hint">Click to reveal</div>
+
+    <!-- ============================================================
+         AUDIO CONTROL
+         ============================================================ -->
+    <div id="audio-control">
+        <button class="audio-btn" id="audio-btn">
+            <div class="audio-bars">
+                <div class="audio-bar"></div>
+                <div class="audio-bar"></div>
+                <div class="audio-bar"></div>
+                <div class="audio-bar"></div>
+            </div>
+            Play Our Song
+        </button>
+    </div>
+
+    <script src="memories.js"></script>
+    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="Cake2.js"></script>
+</body>
+
+</html>
