@@ -64,7 +64,7 @@
         // ================================================================
         const memories = [
             {
-                            image: "assets/WIN_20250322_12_30_38_Pro.jpg",
+                            image: "assets//WIN_20250322_12_30_38_Pro.jpg",
                             title: "Eyy Andrea",
                             date: "July 24, 2024",
                             description: "Crush Mko ayy ",
@@ -75,7 +75,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241013_164924.jpg",
+                            image: "./assets/IMG_20241013_164924.jpg",
                             title: "Lagawww lang",
                             date: "October 13, 2024",
                             description: "Stroll stroll lang kag nag picture picture lang",
@@ -86,7 +86,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241022_174045.jpg",
+                            image: "./assets/IMG_20241022_174045.jpg",
                             title: "Fishball Lamon",
                             date: "October 22, 2024",
                             description: " Eat at plaza and lamon lang ka mga cravings ta. I love how we can be silly together.",
@@ -96,7 +96,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241022_173149.jpg",
+                            image: "./assets/IMG_20241022_173149.jpg",
                             title: "Jaro Plaza Stroll",
                             date: "October 22, 2024",
                             description: "Walking hand in hand through the plaza, the world felt like it had shrunk to just us.",
@@ -106,7 +106,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241022_181739.jpg",
+                            image: "./assets/IMG_20241022_181739.jpg",
                             title: "Street side selfie",
                             date: "October 22, 2024",
                             description: "ma ipit nalang ta ja kaka selfies sa dalan",
@@ -116,7 +116,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241106_151638.jpg",
+                            image: "./assets/IMG_20241106_151638.jpg",
                             title: "HAHAHAHHAAHAHHA",
                             date: "November 06, 2024",
                             description: "ANOJAAA HAHAHAHAHAHAA",
@@ -126,7 +126,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241106_171536.jpg",
+                            image: "./assets/IMG_20241106_171536.jpg",
                             title: "Fiesta sa Sta. Barbara",
                             date: "November 06, 2024",
                             description: "Ma miest taaa, bast aimaw kaw gora",
@@ -136,7 +136,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241109_170610.jpg",
+                            image: "./assets/IMG_20241109_170610.jpg",
                             title: "Sm Selfie",
                             date: "November 09, 2024",
                             description: "Taking selfies to past/speed up time.",
@@ -146,7 +146,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241206_162622.jpg",
+                            image: "./assets/MVIMG_20241206_162622.jpg",
                             title: "Gin picture mo or na Pindot lang",
                             date: "December 06, 2024",
                             description: "Epic bahahahahhahaha",
@@ -156,7 +156,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241206_162714_2.jpg",
+                            image: "./assets/MVIMG_20241206_162714_2.jpg",
                             title: "Selfie With Youu",
                             date: "December 06, 2024",
                             description: "Taking selfie to capture the moment.",
@@ -166,7 +166,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241221_215517_1.jpg",
+                            image: "./assets/MVIMG_20241221_215517_1.jpg",
                             title: "Randomly sending selfies",
                             date: "December 21, 2024",
                             description: "Ga send kaw randmoly kang Selfies mo and I love that.",
@@ -177,7 +177,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241223_111913.jpg",
+                            image: "./assets/MVIMG_20241223_111913.jpg",
                             title: "The Proposal",
                             date: "December 23, 2024",
                             description: "Snow was falling. The park was empty. It was just us and the world held its breath.",
@@ -188,7 +188,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241225_000821.jpg",
+                            image: "./assets/MVIMG_20241225_000821.jpg",
                             title: "Luhhhhhhh",
                             date: "December 25, 2024",
                             description: "Gapanakaw pic",
@@ -198,7 +198,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241225_011754_2.jpg",
+                            image: "./assets/MVIMG_20241225_011754_2.jpg",
                             title: "Smiling Eyes Part 2",
                             date: "December 25, 2024",
                             description: " Ga himo kita ways para i enjoy ang company kang isat isa.",
@@ -208,7 +208,7 @@
                         },
 
             {
-                            image: "assets/IMG_20241225_010702.jpg",
+                            image: "./assets/IMG_20241225_010702.jpg",
                             title: "Smiling Eyes",
                             date: "December 25, 2024",
                             description: "Ka refreshing permi nga makita ang smiling selfies mo hahahahah",
@@ -218,7 +218,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241225_011242.jpg",
+                            image: "./assets/MVIMG_20241225_011242.jpg",
                             title: "Beautiful Gid hahahha",
                             date: "December 25, 2024",
                             description: "I love you more than words can say. I love you more than the stars love the night sky. I love you more than the ocean loves the shore.",
@@ -228,7 +228,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20241225_011733.jpg",
+                            image: "./assets/MVIMG_20241225_011733.jpg",
                             title: "Christmas Eve",
                             date: "December 25, 2024",
                             description: "Picture picture lang nga du profesional photographer.",
@@ -238,7 +238,7 @@
                         },
 
             {
-                            image: "assets/MVIMG_20250209_141816.jpg",
+                            image: "./assets/MVIMG_20250209_141816.jpg",
                             title: "Cuddle Time",
                             date: "February 09, 2025",
                             description: "Just us, wrapped in blankets, the world outside forgotten.",
@@ -248,7 +248,7 @@
                         },
 
             {
-                            image: "assets/IMG_20250301_155524.jpg",
+                            image: "./assets/IMG_20250301_155524.jpg",
                             title: "Lutu-Lutu",
                             date: "March 01, 2025",
                             description: "Cooking gyapon imaw kaw",
@@ -258,7 +258,7 @@
                         },
 
             {
-                            image: "assets/IMG_20250301_154804.jpg",
+                            image: "./assets/IMG_20250301_154804.jpg",
                             title: "Close up Picture ni Andrea",
                             date: "March 01, 2025",
                             description: "Cute Cute pa picture",
@@ -268,7 +268,7 @@
                         },
 
             {
-                            image: "assets/IMG_20250301_155204.jpg",
+                            image: "./assets/IMG_20250301_155204.jpg",
                             title: "Sa Boarding House",
                             date: "March 01, 2025",
                             description: "Tambay Raha raha kang mga fries kag dapli",
@@ -278,7 +278,7 @@
                         },
 
             {
-                            image: "assets/IMG_20250501_202300.jpg",
+                            image: "./assets/IMG_20250501_202300.jpg",
                             title: "Tubong-Tubong Festival",
                             date: "May 01, 2025",
                             description: "Watching kang events sa banwa",
@@ -288,7 +288,7 @@
                         },
 
             {
-                            image: "assets/IMG_20250601_203744.jpg",
+                            image: "./assets/IMG_20250601_203744.jpg",
                             title: "Random Pic",
                             date: "June 01, 2025",
                             description: "Picture lang sa sulod balay nyo",
@@ -298,7 +298,7 @@
                         },
 
             {
-                            image: "assets/IMG_20260617_083748.jpg",
+                            image: "./assets/IMG_20260617_083748.jpg",
                             title: "Lingoob",
                             date: "June 17, 2026",
                             description: "Mga kapira mo mag relamo nga kakapoy mag panaw. Pero bisan pa man, nag enjoy ta sa atong adventure. Ang mga memories nga ato na himo di ko gid malipatan.",

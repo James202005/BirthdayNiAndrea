@@ -1380,7 +1380,7 @@ const DOM = {
         });
 
         function initAudio() {
-            audioTrack = new Audio('assets/Ikaw Lang.mp3');
+            audioTrack = new Audio('./assets/Ikaw Lang.mp3');
             audioTrack.loop = true;
             audioTrack.volume = 0.6;
             audioTrack.preload = 'auto';
